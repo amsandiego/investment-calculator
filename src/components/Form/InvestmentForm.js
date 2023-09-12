@@ -1,26 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const InvestmentForm = () => {
-  const inputChangeHandler = (identifier, value) => {
-    if (identifier === 'currentSavings') {
-      console.log('currentSavings');
-    } else if (identifier === 'yearlySavings') {
-      console.log('yearlySavings');
-    } else if (identifier === 'expectedReturn') {
-      console.log('expectedReturn');
-    } else {
-      console.log('duration');
-    }
+const InvestmentForm = (props) => {
+  const defaultInput = {
+    currentSavings: 10000,
+    yearlySavings: 1200,
+    expectedReturn: 7,
+    duration: 10,
+  };
+  const [userInput, setUserInput] = useState(defaultInput);
+
+  const inputChangeHandler = (input, value) => {
+    setUserInput((prev) => {
+      return {
+        ...prev,
+        [input]: value,
+      };
+    });
   };
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
-    console.log('form submitted');
+    props.onCalculate(userInput);
   };
 
   const resetHandler = (event) => {
-    console.log('reset clicked');
+    setUserInput(defaultInput);
   };
 
   return (
@@ -30,6 +35,7 @@ const InvestmentForm = () => {
           <label htmlFor='current-savings'>Current Savings ($)</label>
           <input
             type='number'
+            value={userInput.currentSavings}
             id='current-savings'
             onChange={(event) =>
               inputChangeHandler('currentSavings', event.target.value)
@@ -40,6 +46,7 @@ const InvestmentForm = () => {
           <label htmlFor='yearly-contribution'>Yearly Savings ($)</label>
           <input
             type='number'
+            value={userInput.yearlySavings}
             id='yearly-contribution'
             onChange={(event) =>
               inputChangeHandler('yearlySavings', event.target.value)
@@ -54,6 +61,7 @@ const InvestmentForm = () => {
           </label>
           <input
             type='number'
+            value={userInput.expectedReturn}
             id='expected-return'
             onChange={(event) =>
               inputChangeHandler('expectedInterest', event.target.value)
@@ -65,6 +73,7 @@ const InvestmentForm = () => {
           <input
             type='number'
             id='duration'
+            value={userInput.duration}
             onChange={(event) =>
               inputChangeHandler('duration', event.target.value)
             }

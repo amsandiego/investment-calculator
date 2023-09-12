@@ -48,4 +48,4 @@ This is a solution to the [Sign-up Form Project on The Odin Project](https://www
 
 ### Useful resources
 
-- [HTML Forms](https://internetingishard.netlify.app/html-and-css/forms/index.html)
+- [Deploying a React App to GitHub Pages](https://github.com/gitname/react-gh-pages)
