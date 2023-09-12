@@ -119,6 +119,10 @@ button:hover {
   color: var(--navy);
 }
 
+.result th {
+  padding: 30px;
+}
+
 .result tbody {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.85rem;

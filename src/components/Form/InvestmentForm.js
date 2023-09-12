@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 
+const defaultInput = {
+  currentSavings: 10000,
+  yearlySavings: 1200,
+  expectedReturn: 7,
+  duration: 10,
+};
+
 const InvestmentForm = (props) => {
-  const defaultInput = {
-    currentSavings: 10000,
-    yearlySavings: 1200,
-    expectedReturn: 7,
-    duration: 10,
-  };
   const [userInput, setUserInput] = useState(defaultInput);
 
   const inputChangeHandler = (input, value) => {
     setUserInput((prev) => {
       return {
         ...prev,
-        [input]: value,
+        [input]: +value,
       };
     });
   };

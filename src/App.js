@@ -13,10 +13,10 @@ function App() {
   const yearlyData = []; //derived state based on userInput state
 
   if (userInput) {
-    let currentSavings = +userInput.currentSavings;
-    const yearlySavings = +userInput.yearlySavings;
-    const expectedReturn = +userInput.expectedReturn / 100;
-    const duration = +userInput.duration;
+    let currentSavings = userInput.currentSavings;
+    const yearlySavings = userInput.yearlySavings;
+    const expectedReturn = userInput.expectedReturn / 100;
+    const duration = userInput.duration;
 
     // calculates yearly results (total savings, interest etc)
     for (let i = 0; i < duration; i++) {
@@ -36,9 +36,13 @@ function App() {
       <Header />
       <InvestmentForm onCalculate={calculateHandler} />
 
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-      <InvestmentTable />
+      {!userInput && <p>No investment calculated yet.</p>}
+      {userInput && (
+        <InvestmentTable
+          data={yearlyData}
+          initialInvestment={userInput.currentSavings}
+        />
+      )}
     </div>
   );
 }
