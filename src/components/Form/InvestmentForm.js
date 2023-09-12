@@ -66,7 +66,7 @@ const InvestmentForm = (props) => {
             value={userInput.expectedReturn}
             id='expected-return'
             onChange={(event) =>
-              inputChangeHandler('expectedInterest', event.target.value)
+              inputChangeHandler('expectedReturn', event.target.value)
             }
           />
         </p>
