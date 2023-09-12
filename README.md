@@ -43,4 +43,4 @@ Live Site URL: [https://amsandiego.github.io/investment-calculator](https://amsa
 
 ### Useful resources
 
-- [Deploying a React App to GitHub Pages](https://internetingishard.netlify.app/html-and-css/forms/index.html)
+- [Deploying a React App to GitHub Pages](https://github.com/gitname/react-gh-pages)
